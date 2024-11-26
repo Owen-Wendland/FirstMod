@@ -46,7 +46,7 @@ public class FirstMod {
 
     }
 
-    // You can use SubscribeEvent and let the Event Bus discover methods to call
+    // You can use SubscribeEvent and let the Event Bus discover methods to call s
     @SubscribeEvent
     public void onServerStarting(ServerStartingEvent event) {
 
