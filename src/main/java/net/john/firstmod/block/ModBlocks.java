@@ -2,9 +2,11 @@ package net.john.firstmod.block;
 
 import net.john.firstmod.FirstMod;
 import net.john.firstmod.Item.ModItems;
+import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.DropExperienceBlock;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
@@ -18,10 +20,16 @@ public class ModBlocks {
     public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, FirstMod.MOD_ID);
 
     public static final RegistryObject<Block> FART_BLOCK = registerBlock("fart_block", () -> new Block(BlockBehaviour.Properties.of()
-            .strength(4f).requiresCorrectToolForDrops().sound(SoundType.AMETHYST)));
+            .strength(1f).requiresCorrectToolForDrops().sound(SoundType.AMETHYST)));
 
     public static final RegistryObject<Block> SMOOTH_FART_BLOCK = registerBlock("smooth_fart_block", () -> new Block(BlockBehaviour.Properties.of()
-            .strength(10f).requiresCorrectToolForDrops().sound(SoundType.BONE_BLOCK)));
+            .strength(1f).requiresCorrectToolForDrops().sound(SoundType.BONE_BLOCK)));
+
+    public static final RegistryObject<Block> JHON_ORE = registerBlock("jhon_ore", () -> new DropExperienceBlock(UniformInt.of(2,10), BlockBehaviour.Properties.of()
+            .strength(1.5f).requiresCorrectToolForDrops()));
+
+    public static final RegistryObject<Block> DEEPSLATE_JHON_ORE = registerBlock("deepslate_jhon_ore", () -> new DropExperienceBlock(UniformInt.of(5,15), BlockBehaviour.Properties.of()
+            .strength(2f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
 
     private static  <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

@@ -28,6 +28,8 @@ public class ModCreativeModeTabs {
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModBlocks.FART_BLOCK.get());
                         output.accept(ModBlocks.SMOOTH_FART_BLOCK.get());
+                        output.accept(ModBlocks.JHON_ORE.get());
+                        output.accept(ModBlocks.DEEPSLATE_JHON_ORE.get());
 
                     }).build());
 
