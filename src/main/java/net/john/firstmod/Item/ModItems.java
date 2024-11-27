@@ -1,6 +1,7 @@
 package net.john.firstmod.Item;
 
 import net.john.firstmod.FirstMod;
+import net.john.firstmod.Item.custom.WandItem;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
@@ -21,6 +22,9 @@ public class ModItems {
                             .effect(new MobEffectInstance(MobEffects.POISON,100,0), 1f)
                             .build())));
     public static final RegistryObject<Item> GOKU = ITEMS.register("goku", () -> new Item(new Item.Properties()));
+
+    public static final RegistryObject<Item> WAND = ITEMS.register("wand",
+            () -> new WandItem(new Item.Properties().durability(128)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

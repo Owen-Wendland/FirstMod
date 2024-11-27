@@ -19,6 +19,7 @@ public class ModCreativeModeTabs {
                     .displayItems((itemDisplayParameters, output) -> {
                         output.accept(ModItems.GOKU.get());
                         output.accept(ModItems.JHON.get());
+                        output.accept(ModItems.WAND.get());
                     }).build());
 
     public static final RegistryObject<CreativeModeTab> JHONMOD_BLOCKS_TAB = CREATIVE_MODE_TABS.register("jhon_blocks_tab",

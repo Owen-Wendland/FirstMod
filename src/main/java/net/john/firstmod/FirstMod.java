@@ -3,11 +3,15 @@ package net.john.firstmod;
 import com.mojang.logging.LogUtils;
 import net.john.firstmod.Item.ModCreativeModeTabs;
 import net.john.firstmod.Item.ModItems;
+import net.john.firstmod.Item.custom.WandItem;
 import net.john.firstmod.block.ModBlocks;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.CreativeModeTabs;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -67,7 +71,15 @@ public class FirstMod {
     public void onServerStarting(ServerStartingEvent event) {
 
     }
-
+    @SubscribeEvent
+    public void onTick(TickEvent.PlayerTickEvent event){
+        Player pPlayer = event.player;
+        if(!pPlayer.level().isClientSide() &&
+                pPlayer.getMainHandItem().getItem() == ModItems.WAND.get() &&
+                !pPlayer.onGround()){
+            pPlayer.fallDistance = 0;
+        }
+    }
     // You can use EventBusSubscriber to automatically register all static methods in the class annotated with @SubscribeEvent
     @Mod.EventBusSubscriber(modid = MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD, value = Dist.CLIENT)
     public static class ClientModEvents {
