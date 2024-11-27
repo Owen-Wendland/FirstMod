@@ -4,6 +4,7 @@ import net.john.firstmod.FirstMod;
 import net.john.firstmod.Item.ModItems;
 import net.john.firstmod.block.ModBlocks;
 import net.minecraft.core.Direction;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.sounds.SoundEvent;
@@ -63,6 +64,8 @@ public class WandItem extends Item {
         //pPlayer.set
         pPlayer.getCooldowns().addCooldown(pPlayer.getItemInHand(pUsedHand).getItem(), 100);
         //System.out.println(direction)
+        pLevel.addParticle(ParticleTypes.EXPLOSION,pPlayer.getX(),pPlayer.getY(),pPlayer.getZ(),direction.x,direction.y,direction.z);
+        pLevel.playSound(null,pPlayer.getOnPos(), SoundEvents.FIREWORK_ROCKET_BLAST, SoundSource.BLOCKS);
         return super.use(pLevel, pPlayer, pUsedHand);
     }
 }

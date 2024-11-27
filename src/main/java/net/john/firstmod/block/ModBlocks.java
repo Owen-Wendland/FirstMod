@@ -2,6 +2,7 @@ package net.john.firstmod.block;
 
 import net.john.firstmod.FirstMod;
 import net.john.firstmod.Item.ModItems;
+import net.john.firstmod.block.custom.SuperBlock;
 import net.minecraft.util.valueproviders.UniformInt;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -30,6 +31,9 @@ public class ModBlocks {
 
     public static final RegistryObject<Block> DEEPSLATE_JHON_ORE = registerBlock("deepslate_jhon_ore", () -> new DropExperienceBlock(UniformInt.of(5,15), BlockBehaviour.Properties.of()
             .strength(2f).requiresCorrectToolForDrops().sound(SoundType.DEEPSLATE)));
+
+    public static final RegistryObject<Block> SUPER_BLOCK = registerBlock("super_block", () -> new SuperBlock(BlockBehaviour.Properties.of()
+            .strength(0.2f).sound(SoundType.CROP)));
 
     private static  <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
