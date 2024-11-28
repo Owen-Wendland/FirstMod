@@ -40,9 +40,10 @@ public class SuperBlock extends Block {
 
     @Override
     protected InteractionResult useWithoutItem(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer, BlockHitResult pHitResult) {
+        float multip = 1.0f;
         Vec3 a = pPlayer.getLookAngle();
         pPlayer.heal(1);
-        pPlayer.setDeltaMovement(-a.x,.6,-a.z);
+        pPlayer.setDeltaMovement(-a.x*multip,.6,-a.z*multip);
         pLevel.playSound(pPlayer, pPos, SoundEvents.SLIME_JUMP, SoundSource.BLOCKS, 1f, 1f);
         return InteractionResult.SUCCESS;
     }
