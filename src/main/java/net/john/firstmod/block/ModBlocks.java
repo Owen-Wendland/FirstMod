@@ -36,8 +36,8 @@ public class ModBlocks {
     public static final RegistryObject<Block> SUPER_BLOCK = registerBlock("super_block", () -> new SuperBlock(BlockBehaviour.Properties.of()
             .strength(0.2f).sound(SoundType.CROP)));
 
-    //public static final RegistryObject<Block> LAMP = registerBlock("lamp", () -> new LampBlock(BlockBehaviour.Properties.of().strength(3f)
-    //        .lightLevel(state -> state.getValue(LampBlock.CLICKED) ? 15 : 0)));
+    public static final RegistryObject<Block> LAMP = registerBlock("lamp", () -> new LampBlock(BlockBehaviour.Properties.of().strength(3f)
+            .lightLevel(state -> state.getValue(LampBlock.CLICKED) ? 15 : 0)));
 
     private static  <T extends Block> RegistryObject<T> registerBlock(String name, Supplier<T> block){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

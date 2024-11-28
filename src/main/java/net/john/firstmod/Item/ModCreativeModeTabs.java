@@ -32,6 +32,7 @@ public class ModCreativeModeTabs {
                         output.accept(ModBlocks.JHON_ORE.get());
                         output.accept(ModBlocks.DEEPSLATE_JHON_ORE.get());
                         output.accept(ModBlocks.SUPER_BLOCK.get());
+                        output.accept(ModBlocks.LAMP.get());
                     }).build());
 
     public static void register(IEventBus eventBus) {
